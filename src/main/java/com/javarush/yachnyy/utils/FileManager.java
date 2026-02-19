@@ -9,6 +9,7 @@ import java.nio.file.Path;
 public class FileManager {
 
     public static String readFile(String path) {
+        System.out.println("Path для файла:" + Path.of(path) + " // " + Path.of(path).getRoot());
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {

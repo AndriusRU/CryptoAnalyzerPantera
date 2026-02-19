@@ -57,18 +57,28 @@ public class ConsoleRunner {
         String key = askUser("Key: ");
 
         Result result = controller.runAction("encrypt", new String[] {fileIn, fileOut, key});
-        System.out.println();
+        System.out.println(result.getMessage());
     }
 
     private static void decrypt() {
+        String fileIn = askUser("Input file path: ");
+        String fileOut = askUser("Output file path: ");
+        String key = askUser("Key: ");
 
+        Result result = controller.runAction("decrypt", new String[] {fileIn, fileOut, key});
+        System.out.println(result.getMessage());
     }
 
     private static void bruteForce() {
+        String fileIn = askUser("Input file path: ");
+        String fileOut = askUser("Output file path: ");
 
+        Result result = controller.runAction("bruteForce", new String[] {fileIn, fileOut});
+        System.out.println(result.getMessage());
     }
 
     private static void analyzer() {
-
+        Result result = controller.runAction("analyze", new String[] {});
+        System.out.println(result.getMessage());
     }
 }
