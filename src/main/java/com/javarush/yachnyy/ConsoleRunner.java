@@ -11,7 +11,9 @@ public class ConsoleRunner {
     private static final MainController controller = new MainController();
 
     public static void main(String[] args) {
-        while (true) {
+        boolean run = true;
+
+        while (run) {
             printMenu();
             String userChoice = scanner.nextLine();
 
@@ -21,7 +23,10 @@ public class ConsoleRunner {
                     case "2" -> decrypt();
                     case "3" -> bruteForce();
                     case "4" -> analyzer();
-                    case "0" -> exit();
+                    case "0" -> {
+                        System.out.println("Выход из программы");
+                        run = false;
+                    }
                     default -> System.out.println("Unknown command\n");
                 }
             } catch (Exception e) {
@@ -44,11 +49,6 @@ public class ConsoleRunner {
     private static String askUser(String question) {
         System.out.println(question);
         return scanner.nextLine();
-    }
-
-    private static void exit() {
-        System.out.println("Good luck and goodbye !");
-        System.exit(0);
     }
 
     private static void encrypt() {
